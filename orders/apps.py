@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class InventoryConfig(AppConfig):
+class OrdersConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'marketplace.inventory'
+    name = 'orders'
