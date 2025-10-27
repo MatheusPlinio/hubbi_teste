@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: marketplace_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    env_file:
+      - .env
+    ports:
+      - "${DB_PORT}:5432"
+    networks:
+      marketplace:
+
+  redis:
+    image: redis:8
+    container_name: redis_db
+    ports:
+      - "${REDIS_PORT}:6379"
+    networks:
+      marketplace:
+
+networks:
+  marketplace:
+    driver: bridge
